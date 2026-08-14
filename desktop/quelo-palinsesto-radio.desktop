@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=PALINSESTO RADIO
+Name[it]=PALINSESTO RADIO
+GenericName=Radio schedule player
+Comment=Quelo-palinsesto-radio — scheduler/player audio settimanale
+Comment[it]=Quelo-palinsesto-radio — scheduler/player audio settimanale
+Exec=quelo-palinsesto-radio
+Icon=audio-x-generic
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+Keywords=quelo;palinsesto;radio;scheduler;playlist;
+StartupNotify=true

@@ -1,0 +1,108 @@
+Quelo-palinsesto-radio — dipendenze di sistema
+==============================================
+
+Elenco completo per una macchina nuova (Debian/Ubuntu, nomi pacchetti
+come in Quelo Audiomaker). Non dipende da cosa c’è già installato:
+è la distinta di tutto ciò che serve all’app per funzionare.
+
+Nessuna dipendenza PyPI: solo pacchetti di sistema + libreria standard
+Python (sqlite3, http.server, argparse, urllib, json, pathlib, …).
+
+
+A) Runtime Python
+-----------------
+  python3
+  python3-gi                 # PyGObject (GStreamer da Python)
+  python3-pyqt6              # UI desktop (non serve solo con --web-only)
+
+
+B) GStreamer (player, VU, LIVE, LINK, mixer)
+--------------------------------------------
+  gir1.2-gstreamer-1.0
+  gir1.2-gst-plugins-base-1.0
+
+  gstreamer1.0-plugins-base  # playbin, audioconvert, audioresample, volume, …
+  gstreamer1.0-plugins-good  # level (VU), decode comuni, …
+  gstreamer1.0-plugins-bad   # curlhttpsrc (stream HTTP/HTTPS tipo LINK)
+  gstreamer1.0-plugins-ugly  # codec aggiuntivi
+  gstreamer1.0-libav         # decode ampia gamma formati (libav/ffmpeg)
+  gstreamer1.0-pulseaudio    # pulsesink / pulsesrc
+  gstreamer1.0-fdkaac        # AAC (allineato ad Audiomaker)
+
+
+C) Audio server e strumenti Pulse
+---------------------------------
+  # Stack Pulse classico (come Audiomaker):
+  pulseaudio
+  pulseaudio-utils           # pactl — elenco/mute/volume ingressi (MIXER)
+
+  # Oppure stack PipeWire (alternativa moderna, API Pulse compatibile):
+  #   pipewire
+  #   pipewire-pulse
+  #   wireplumber
+  #   pulseaudio-utils       # pactl resta obbligatorio per il MIXER
+
+
+D) Analisi file audio (import FILE / PLAYLIST)
+----------------------------------------------
+  ffmpeg                     # include ffprobe
+                             # durata, metadati, peak-normalize
+
+
+E) Manuale PDF e utilità desktop
+--------------------------------
+  zathura
+  zathura-pdf-poppler        # backend PDF per zathura
+  xdg-utils                  # xdg-open (fallback se manca zathura)
+
+
+F) Consigliati su macchina “radio” completa
+-------------------------------------------
+  glib-networking            # TLS / HTTPS per alcuni stream LINK
+  pulseaudio-module-bluetooth  # se servono ingressi BT (come Audiomaker)
+  # sessione grafica + server audio attivo per l’utente che lancia l’app
+  # (desktop PyQt o --web-only: stesso utente / stesso Pulse)
+
+
+G) Installazione tipica macchina nuova (Debian)
+-----------------------------------------------
+  sudo apt-get update
+  sudo apt-get install -y \
+    python3 \
+    python3-gi \
+    python3-pyqt6 \
+    gir1.2-gstreamer-1.0 \
+    gir1.2-gst-plugins-base-1.0 \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-libav \
+    gstreamer1.0-pulseaudio \
+    gstreamer1.0-fdkaac \
+    pulseaudio \
+    pulseaudio-utils \
+    ffmpeg \
+    zathura \
+    zathura-pdf-poppler \
+    xdg-utils \
+    glib-networking
+
+
+H) Cosa usa cosa (promemoria)
+-----------------------------
+  Desktop PyQt ........ A + B + C + D (+ E per il manuale)
+  --web-only .......... A (senza python3-pyqt6) + B + C + D
+  MIXER ingressi ...... C (pactl) + B (pulsesrc / level)
+  Clip FILE/PLAYLIST .. D (ffprobe/ffmpeg) + B (playbin)
+  Clip LIVE ........... B + C (pulsesrc → pulsesink)
+  Clip LINK ........... B (curlhttpsrc) + F (TLS se HTTPS)
+  Manuale PDF ......... E
+
+
+I) Dati a runtime (non pacchetti)
+---------------------------------
+  DB: /media/quelo-home/.palinsesto.db se QUELO-HOME è montata,
+      altrimenti $HOME/.palinsesto.db
+  Porta web default: 8890
+  Avvio: dalla sessione dell’utente con audio (Pulse/PipeWire attivo)

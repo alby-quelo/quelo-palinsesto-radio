@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Launcher Quelo-palinsesto-radio."""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+SHARE = Path("/usr/local/share/quelo-palinsesto-radio")
+# Dev / overlay: risolvi accanto al launcher se lo share di sistema non c'è
+if not SHARE.is_dir():
+    alt = Path(__file__).resolve().parent.parent / "share" / "quelo-palinsesto-radio"
+    if alt.is_dir():
+        SHARE = alt
+
+sys.path.insert(0, str(SHARE))
+
+from main import main  # noqa: E402
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Quelo Palinsesto Radio</title>
+<style>
+  :root {
+    --bg: #0f1216;
+    --panel: #1a1f27;
+    --text: #e8ecf1;
+    --muted: #9aa3b2;
+    --accent: #5b9fd4;
+    --ok: #3ddc97;
+    --border: #2e3642;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  a { color: var(--accent); }
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: #12161c;
+  }
+  header img { width: 64px; height: 64px; }
+  header h1 { margin: 0; font-size: 1.6rem; }
+  header .tag { color: var(--muted); font-size: .95rem; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 1.25rem; }
+  .hero {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    margin: 1.25rem 0;
+  }
+  .btns { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .btn {
+    display: inline-block;
+    background: #2a6fad;
+    color: #fff !important;
+    text-decoration: none;
+    padding: .55rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .btn.secondary { background: #2f3b4a; }
+  .btn.rar { background: #6b4f2a; }
+  h2 {
+    margin: 2rem 0 .75rem;
+    font-size: 1.25rem;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: .35rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 720px) {
+    .grid.two { grid-template-columns: 1fr 1fr; }
+  }
+  figure {
+    margin: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+  }
+  figcaption {
+    padding: .55rem .75rem;
+    font-size: .85rem;
+    color: var(--muted);
+  }
+  ul.clean { padding-left: 1.2rem; }
+  code, .mono {
+    font-family: ui-monospace, "DejaVu Sans Mono", monospace;
+    font-size: .9em;
+    background: #101318;
+    padding: .1em .35em;
+    border-radius: 3px;
+  }
+  .note {
+    background: #2a2410;
+    border-left: 4px solid #f0a000;
+    padding: .75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  footer {
+    margin: 2.5rem 0 1.5rem;
+    color: var(--muted);
+    font-size: .85rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<header>
+  <img src="github_assets/logo.png" alt="Quelo"/>
+  <div>
+    <h1>Quelo Palinsesto Radio</h1>
+    <div class="tag">Palinsesto automatico per radio · Linux · Desktop + Web</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <p>
+      Progetta la settimana in griglia (FILE, PLAYLIST, LIVE, LINK), metti in onda con un click,
+      riempi i buchi con <strong>ANTI BIANCO</strong>. Controlla dalla <strong>GUI desktop</strong>
+      o dal <strong>browser</strong> (<span class="mono">--web-only</span>).
+    </p>
+    <div class="btns">
+      <a class="btn" href="../dist/">Download release</a>
+      <a class="btn secondary" href="manuale_web.pdf">Manuale web (PDF)</a>
+      <a class="btn secondary" href="manuale_palinsesto.pdf">Manuale desktop (PDF)</a>
+      <a class="btn secondary" href="../tabella_dipendenze_obbligatorie.md">Dipendenze</a>
+    </div>
+    <p style="margin:.9rem 0 0;color:var(--muted);font-size:.9rem">
+      Versione: vedi file <span class="mono">VERSION</span> nel repository ·
+      Archivio in <span class="mono">.tar.gz</span>, <span class="mono">.zip</span>, <span class="mono">.rar</span>
+    </p>
+  </section>
+
+  <h2>Download</h2>
+  <p>Stesso contenuto in tre formati (cartella <span class="mono">dist/</span> del repo):</p>
+  <div class="btns" id="dlButtons">
+    <a class="btn" href="../dist/quelo-palinsesto-radio-1.0.0.tar.gz">.tar.gz</a>
+    <a class="btn secondary" href="../dist/quelo-palinsesto-radio-1.0.0.zip">.zip</a>
+    <a class="btn rar" href="../dist/quelo-palinsesto-radio-1.0.0.rar">.rar</a>
+  </div>
+  <div class="note">
+    Dopo lo scompattamento: <span class="mono">chmod +x bin/quelo-palinsesto-radio</span>
+    poi avvia GUI o <span class="mono">--web-only</span>.
+    Da un altro PC apri
+    <span class="mono">http://IP_DEL_COMPUTER_DOVE_È_INSTALLATO:8890/</span>
+    (non usare 127.0.0.1 da remoto). Porta default <strong>8890</strong> — sbloccarla sul firewall o sceglierne una libera.
+  </div>
+
+  <h2>Usare via web</h2>
+  <p>
+    Avvio tipico:
+    <span class="mono">./bin/quelo-palinsesto-radio --web-only --bind 0.0.0.0 --port 8890</span>
+  </p>
+  <div class="grid">
+    <figure>
+      <img src="github_assets/web/01-pagina-completa.png" alt="Interfaccia web — pagina completa"/>
+      <figcaption>Interfaccia web: Monitor, Settimana, Timeline, Inserimento, Browser file</figcaption>
+    </figure>
+    <div class="grid two">
+      <figure>
+        <img src="github_assets/web/06-clip-popup.png" alt="Popup clip sulla timeline"/>
+        <figcaption>Click su una clip → Elimina / Modifica / Visualizza</figcaption>
+      </figure>
+      <figure>
+        <img src="github_assets/web/05-mixer-setting.png" alt="Mixer e Setting web"/>
+        <figcaption>Mixer Pulse e Setting (ANTI BIANCO / soglie)</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h2>GUI Desktop</h2>
+  <p>
+    Avvio: menu applicazioni «PALINSESTO RADIO» oppure
+    <span class="mono">./bin/quelo-palinsesto-radio</span>
+  </p>
+  <div class="grid">
+    <figure>
+      <img src="github_assets/gui/gui-finestra-principale.jpg" alt="GUI desktop — finestra principale"/>
+      <figcaption>Finestra principale: griglia settimanale e barra comandi (dal manuale desktop)</figcaption>
+    </figure>
+    <div class="grid two">
+      <figure>
+        <img src="github_assets/gui/gui-barra-griglia.jpg" alt="GUI — griglia e barra"/>
+        <figcaption>Navigazione griglia, zoom, Start/Stop, linea “adesso”</figcaption>
+      </figure>
+      <figure>
+        <img src="github_assets/gui/gui-dialoghi.jpg" alt="GUI — dialoghi"/>
+        <figcaption>Dialoghi LINK / ANTI BIANCO (dal manuale desktop)</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h2>Cosa fa</h2>
+  <ul class="clean">
+    <li>Palinsesto Lun–Dom con FILE, PLAYLIST, LIVE (Pulse), LINK</li>
+    <li><strong>ANTI BIANCO</strong> + silence-gate configurabile</li>
+    <li>MIXER ingressi, VU, volume</li>
+    <li>Ascolto remoto da browser (uscita della macchina)</li>
+    <li>DB SQLite in QUELO-HOME o <span class="mono">$HOME/.palinsesto.db</span></li>
+  </ul>
+
+  <h2>Dipendenze</h2>
+  <p>
+    Portable su Linux (varie distro e architetture) <strong>senza modificare il codice</strong>,
+    se rispetti le versioni minime:
+    <a href="../tabella_dipendenze_obbligatorie.md">tabella_dipendenze_obbligatorie.md</a>.
+    Nomi pacchetto Debian: <a href="../dipendenze.txt">dipendenze.txt</a>.
+  </p>
+
+  <footer>
+    Quelo Palinsesto Radio · materiale preparato per pubblicazione GitHub ·
+    repo previsto: <span class="mono">quelo-palinsesto-radio</span>
+  </footer>
+</div>
+</body>
+</html>

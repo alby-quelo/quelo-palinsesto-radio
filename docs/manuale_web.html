@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title>Manuale Web — Quelo Palinsesto Radio</title>
+<style>
+  @page { size: A4; margin: 14mm 12mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #111;
+    margin: 0;
+  }
+  h1 { font-size: 22pt; margin: 0 0 6px; color: #0b3d66; }
+  h2 {
+    font-size: 14pt;
+    margin: 18px 0 8px;
+    padding: 6px 10px;
+    background: #0b3d66;
+    color: #fff;
+    border-radius: 4px;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 12pt; margin: 12px 0 6px; color: #0b3d66; page-break-after: avoid; }
+  p, li { margin: 4px 0; }
+  ol.big > li { margin: 8px 0; }
+  .cover {
+    text-align: center;
+    padding: 40px 20px 20px;
+    page-break-after: always;
+  }
+  .cover img.logo { width: 96px; height: 96px; margin-bottom: 16px; }
+  .cover .sub { color: #444; font-size: 12pt; margin-top: 8px; }
+  .cover .box {
+    margin: 28px auto 0;
+    max-width: 420px;
+    text-align: left;
+    border: 2px solid #0b3d66;
+    border-radius: 8px;
+    padding: 14px 18px;
+    background: #f4f8fb;
+  }
+  .shot {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    object-position: top;
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin: 8px 0 12px;
+    background: #222;
+    page-break-inside: avoid;
+  }
+  .shot.tall { max-height: 420px; }
+  .tip {
+    background: #fff8e1;
+    border-left: 4px solid #f0a000;
+    padding: 8px 12px;
+    margin: 10px 0;
+  }
+  .ok {
+    background: #e8f5e9;
+    border-left: 4px solid #2e7d32;
+    padding: 8px 12px;
+    margin: 10px 0;
+  }
+  .btn {
+    display: inline-block;
+    background: #1565c0;
+    color: #fff !important;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .btn-red { background: #c62828; }
+  .btn-gray { background: #555; }
+  .btn-green { background: #2e7d32; }
+  code, .path { font-family: "DejaVu Sans Mono", monospace; font-size: 9.5pt; }
+  .footer-note { font-size: 9pt; color: #666; margin-top: 24px; }
+  section { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <img class="logo" src="logo.png" alt="Quelo"/>
+  <h1>Quelo Palinsesto Radio</h1>
+  <p class="sub"><strong>Manuale interfaccia WEB</strong><br/>versione “a prova di scimmia”</p>
+  <div class="box">
+    <p><strong>Cosa fa questo programma?</strong></p>
+    <p>Mette in onda i file/playlist del palinsesto, riempie i buchi con l’ANTI BIANCO, e ti fa gestire tutto dal browser.</p>
+    <p><strong>Dove lo apri?</strong></p>
+    <p>Da un browser (sul computer della radio <em>o</em> da un altro PC in rete) vai a:</p>
+    <p><span class="path">http://IP_DEL_COMPUTER_DOVE_È_INSTALLATO:8890/</span></p>
+    <p>Sostituisci <span class="path">IP_DEL_COMPUTER_DOVE_È_INSTALLATO</span> con l’indirizzo IP della macchina dove gira Quelo (quello che vedi in <em>Settimana</em>, link giallo). Esempio: <span class="path">http://192.168.1.50:8890/</span>.</p>
+    <p class="footer-note" style="margin-top:8px"><strong>Nota:</strong> <span class="path">127.0.0.1</span> / <span class="path">localhost</span> funzionano <em>solo</em> se apri il browser <strong>sulla stessa macchina</strong>. Da un altro PC non puoi usarli.</p>
+  </div>
+  <p class="footer-note">Questo PDF si apre dal pulsante <span class="btn">Manuale PDF</span> in alto a destra nella pagina web.</p>
+</div>
+
+<section>
+  <h2>1 — La pagina intera (mappa)</h2>
+  <p>Quando apri la pagina vedi questi blocchi, dall’alto in basso:</p>
+  <ol class="big">
+    <li><strong>Monitor</strong> (sinistra) + <strong>Settimana / rete</strong> (destra)</li>
+    <li><strong>Timeline</strong> (tutta la settimana)</li>
+    <li><strong>Inserimento Clip</strong> + <strong>Browser file</strong></li>
+    <li><strong>MIXER</strong> + <strong>SETTING</strong> (più in basso: scorri la pagina)</li>
+  </ol>
+  <img class="shot tall" src="manual_web_shots/01-pagina-completa.png" alt="Pagina completa"/>
+  <div class="tip">Se non vedi MIXER o SETTING: scorri in basso con la rotella del mouse.</div>
+</section>
+
+<section>
+  <h2>2 — MONITOR (partire / fermare / ascoltare)</h2>
+  <ol class="big">
+    <li>Guarda <strong>Stato</strong>: se è <span class="btn-green btn">IN ONDA</span> il motore sta girando.</li>
+    <li><span class="btn">Start</span> = avvia il palinsesto. <span class="btn-gray btn">Stop</span> = ferma.</li>
+    <li><span class="btn-gray btn">Ascolta da browser</span> = senti nel browser ciò che esce dagli altoparlanti della macchina.</li>
+    <li>Il cursore <strong>Volume</strong> regola il volume dell’uscita del computer dove è installato; per regolare il volume sul tuo PC usa il volume del tuo PC.</li>
+  </ol>
+  <div class="ok"><strong>ANTI BIANCO</strong> = quando non c’è una clip in onda, parte la playlist di emergenza (niente silenzio in antenna).</div>
+</section>
+
+<section>
+  <h2>3 — SETTIMANA e rete</h2>
+  <ol class="big">
+    <li>Con ◀ ▶ o <span class="btn">Oggi</span> cambi la settimana mostrata in Timeline.</li>
+    <li><strong>Bind</strong> e <strong>Porta</strong> = su quale interfaccia e porta risponde la pagina web. Il link giallo sotto mostra l’indirizzo da aprire (<span class="path">http://IP_DEL_COMPUTER_DOVE_È_INSTALLATO:porta/</span>).</li>
+    <li>Se cambi Bind/Porta: premi <span class="btn">Applica rete</span>, poi riapri il link giallo (o digita il nuovo indirizzo nel browser).</li>
+  </ol>
+  <div class="tip">Da un altro PC usa sempre l’IP della macchina Quelo, non 127.0.0.1. Porta e firewall: vedi le istruzioni di installazione / README.</div>
+</section>
+
+<section>
+  <h2>4 — TIMELINE (vedere e gestire le clip)</h2>
+  <ol class="big">
+    <li>Ogni colonna è un giorno. Ogni riga è un’ora.</li>
+    <li>I rettangoli colorati sono le trasmissioni programmate.</li>
+    <li>Zoom: premi <strong>−</strong> o <strong>+</strong> vicino a “px/h” per rimpicciolire/ingrandire.</li>
+    <li><strong>Clicca una clip</strong> → si apre la finestra Trasmissione.</li>
+  </ol>
+  <img class="shot" src="manual_web_shots/06-clip-popup.png" alt="Popup clip"/>
+  <h3>Nella finestra Trasmissione</h3>
+  <ul>
+    <li><span class="btn-red btn">Elimina</span> = togli la clip dal palinsesto (chiede conferma).</li>
+    <li><span class="btn">Modifica</span> = cambia orari / titolo / path.</li>
+    <li><span class="btn-gray btn">Visualizza</span> = dettagli.</li>
+    <li><span class="btn-gray btn">Chiudi</span> = chiudi senza fare niente.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>5 — INSERIMENTO CLIP (mettere qualcosa in onda)</h2>
+  <p>Hai tre modi veloci:</p>
+  <ol class="big">
+    <li><span class="btn">In coda</span> = mette la clip dopo l’ultima già presente nel database.</li>
+    <li><span class="btn">Da adesso</span> = parte da adesso.</li>
+    <li><span class="btn">Inserimento manuale</span> = tu digiti inizio (e fine se serve).</li>
+  </ol>
+  <img class="shot" src="manual_web_shots/02-inserimento-form.png" alt="Form inserimento"/>
+  <h3>Passi per un FILE (il caso più comune)</h3>
+  <ol class="big">
+    <li>Scegli <strong>Tipo = FILE</strong> (o PLAYLIST / LIVE / LINK).</li>
+    <li>Nel <strong>Browser file</strong> a destra vai nella cartella e clicca il file: il path si riempie da solo.</li>
+    <li>Controlla <strong>Inizio</strong> e <strong>Titolo</strong>.</li>
+    <li>Premi <span class="btn">Aggiungi clip</span>.</li>
+    <li>Controlla che appaia sulla Timeline.</li>
+  </ol>
+  <div class="tip">FILE e PLAYLIST durano quanto il file vero. LIVE e LINK di default durano 1 ora (puoi cambiare la Fine).</div>
+</section>
+
+<section>
+  <h2>6 — CREA PLAYLIST (dai file già sul server)</h2>
+  <ol class="big">
+    <li>In Inserimento Clip premi <span class="btn">Crea playlist</span>.</li>
+    <li>Scrivi un <strong>Nome playlist</strong> (es. Mattina).</li>
+    <li>Scegli la <strong>Cartella di salvataggio</strong> (o <span class="btn-gray btn">Usa cartella del browser</span>).</li>
+    <li>Nel Browser file seleziona un brano e premi <strong>+</strong> ( − toglie l’ultimo).</li>
+    <li>Quando la lista è ok: <span class="btn">Salva</span> → nasce un file <span class="path">.m3u</span>.</li>
+  </ol>
+  <img class="shot" src="manual_web_shots/05-mixer-setting.png" alt="Crea playlist e mixer"/>
+  <div class="ok">Upload ≠ Crea playlist. Upload porta file dal tuo PC. Crea playlist usa file già sulla macchina.</div>
+</section>
+
+<section>
+  <h2>7 — BROWSER FILE e UPLOAD</h2>
+  <ol class="big">
+    <li><span class="btn-gray btn">Home</span> / <span class="btn-gray btn">Su</span> = navigazione cartelle.</li>
+    <li>Scrivi un nome e <span class="btn">Crea cartella</span> per fare una categoria (es. Jingle).</li>
+    <li><span class="btn">Upload</span> apre la scelta:</li>
+  </ol>
+  <img class="shot" src="manual_web_shots/04-upload-scelta.png" alt="Upload scelta"/>
+  <ul>
+    <li><strong>File audio</strong> = carichi un brano (mp3, wav, …).</li>
+    <li><strong>Playlist già pronta</strong> = carichi un <span class="path">.m3u</span> già fatto + i file audio / cartella che cita.</li>
+    <li><span class="btn-gray btn">Chiudi</span> = annulla.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>8 — MIXER</h2>
+  <ol class="big">
+    <li>Vedi gli ingressi (es. Microfono) con la barra VU.</li>
+    <li>Il cursore <strong>Vol</strong> regola il volume di quell’ingresso.</li>
+    <li>La spunta <strong>Mute</strong> silenzia quell’ingresso.</li>
+    <li><span class="btn">Aggiorna</span> rilegge la lista ingressi PulseAudio.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>9 — SETTING (ANTI BIANCO e soglie)</h2>
+  <ol class="big">
+    <li><strong>ANTI BIANCO playlist</strong>: clicca il campo o <span class="btn">Sfoglia</span> e scegli la playlist di emergenza (<span class="path">.m3u</span>).</li>
+    <li><strong>Font clip</strong> e <strong>Zoom px/ora</strong> = solo aspetto della Timeline.</li>
+    <li><strong>Soglie intervento anti-bianco</strong> (FILE / LINK / LIVE):
+      <ul>
+        <li><strong>Innesco</strong> (sec) = dopo quanti secondi di silenzio scatta l’anti-bianco.</li>
+        <li><strong>Rilascio</strong> (sec) = quanto deve tornare il segnale prima di lasciare l’anti-bianco.</li>
+        <li><strong>Soglia</strong> (dB) = sotto questo livello conta come “silenzio”.</li>
+      </ul>
+    </li>
+    <li>Alla fine: <span class="btn">Salva setting</span>.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>10 — Ricetta veloce: mettere un brano in onda</h2>
+  <ol class="big">
+    <li>Apri la pagina web.</li>
+    <li>Nel Browser file trova il file (o fai Upload).</li>
+    <li>Premi <span class="btn">Da adesso</span> oppure <span class="btn">In coda</span> (dopo aver selezionato il file).</li>
+    <li>Oppure: <span class="btn">Inserimento manuale</span> → compila → <span class="btn">Aggiungi clip</span>.</li>
+    <li>Guarda la Timeline: deve comparire il rettangolo.</li>
+    <li>Nel Monitor: se non è già in onda, premi <span class="btn">Start</span>.</li>
+    <li>Opzionale: <span class="btn-gray btn">Ascolta da browser</span> per verificare.</li>
+  </ol>
+  <div class="tip">Se senti solo l’ANTI BIANCO: non c’è una clip che copre “adesso”. Controlla stato e Timeline sulla colonna di oggi.</div>
+</section>
+
+<p class="footer-note">File: <span class="path">docs/manuale_web.pdf</span> — interfaccia web Quelo Palinsesto Radio.</p>
+
+</body>
+</html>

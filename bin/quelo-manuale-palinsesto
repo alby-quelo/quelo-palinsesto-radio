@@ -1,0 +1,9 @@
+#!/bin/bash
+# Apre il manuale PDF del tree di sviluppo.
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PDF="${ROOT}/docs/manuale_palinsesto.pdf"
+if command -v zathura >/dev/null 2>&1; then
+  exec zathura "$PDF"
+fi
+exec xdg-open "$PDF"
