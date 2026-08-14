@@ -1,0 +1,116 @@
+Quelo Palinsesto Radio — Credits
+================================
+
+Copyright (c) 2026 — Alberto Frosio
+
+
+================================================================================
+ITALIANO
+================================================================================
+
+Ispirazione
+-----------
+Ringraziamento speciale a Corrado Guzzanti per il personaggio «Quelo»,
+musa e fonte di ispirazione del progetto.
+
+  Corrado Guzzanti | personaggio «Quelo» (ispirazione) | —
+
+
+Autore del progetto
+-------------------
+  Alberto Frosio | autore e maintainer | alby@gnumerica.org
+
+
+Software originale Quelo Palinsesto Radio
+-----------------------------------------
+  Quelo Palinsesto Radio | palinsesto radio automatico (griglia settimanale,
+                           FILE / PLAYLIST / LIVE / LINK, ANTI BIANCO,
+                           mixer Pulse, GUI PyQt + interfaccia web --web-only,
+                           manuali PDF)
+  Spin-off standalone dalla funzione palinsesto radio di Quelo Audiomaker
+  (https://github.com/alby-quelo/Quelo-Audiomaker)
+  La funzione ANTI BIANCO è anche l’origine concettuale di Quelo Anti Bianco
+  (https://github.com/alby-quelo/quelo-anti-bianco)
+
+
+Per ogni voce: Autore / progetto | Software | Sito o riferimento
+
+Runtime del software (dipendenze)
+---------------------------------
+  Python Software Foundation | Python 3 | https://www.python.org/
+  Python Software Foundation | libreria standard (http.server, sqlite3, json, …) | https://www.python.org/
+  SQLite team | SQLite (.palinsesto.db) | https://www.sqlite.org/
+  PyGObject / GNOME | python3-gi | https://pygobject.gnome.org/
+  Riverbank Computing | PyQt6 | https://riverbankcomputing.com/software/pyqt/
+  Qt Company | Qt 6 | https://www.qt.io/
+  GStreamer team | GStreamer 1.x + plugin base/good/bad/ugly/libav/pulseaudio | https://gstreamer.freedesktop.org/
+  FFmpeg project | FFmpeg / ffprobe | https://ffmpeg.org/
+  PulseAudio / freedesktop.org | PulseAudio, pulseaudio-utils (pactl) | https://www.freedesktop.org/wiki/Software/PulseAudio/
+  PipeWire contributors | PipeWire, pipewire-pulse, wireplumber | https://pipewire.org/
+  GNOME / GLib | glib-networking (TLS) | https://gitlab.gnome.org/GNOME/glib-networking
+  pwmt / poppler | zathura, zathura-pdf-poppler | https://pwmt.org/projects/zathura/
+  freedesktop.org | xdg-utils | https://www.freedesktop.org/wiki/Software/xdg-utils/
+
+
+Sviluppo assistito
+------------------
+  Assistenza alla scrittura del codice: Cursor / modelli AI
+
+
+Logo e branding
+---------------
+  Logo Quelo (docs/logo.png e asset del software)
+  Brand Quelo / materiale progetto Quelo — Alberto Frosio
+
+
+Contatti
+--------
+  Uso commerciale / segnalazioni: alby@gnumerica.org
+
+
+================================================================================
+ENGLISH
+================================================================================
+
+Inspiration
+-----------
+Special thanks to Corrado Guzzanti for creating the character «Quelo»,
+muse and source of inspiration for this project.
+
+  Corrado Guzzanti | «Quelo» character (inspiration) | —
+
+
+Project author
+--------------
+  Alberto Frosio | author and maintainer | alby@gnumerica.org
+
+
+Original software
+-----------------
+  Quelo Palinsesto Radio | automatic radio scheduler (weekly grid,
+                           FILE / PLAYLIST / LIVE / LINK, ANTI BIANCO,
+                           Pulse mixer, PyQt GUI + --web-only browser UI,
+                           PDF manuals)
+  Standalone spin-off of the palinsesto radio feature from Quelo Audiomaker
+  (https://github.com/alby-quelo/Quelo-Audiomaker)
+  The ANTI BIANCO feature is also the conceptual origin of Quelo Anti Bianco
+  (https://github.com/alby-quelo/quelo-anti-bianco)
+
+Third-party authors and packages: see the Italian section (same list,
+aligned with tabella_dipendenze_obbligatorie.md and dipendenze.txt).
+
+
+Assisted development
+--------------------
+  Coding assistance: Cursor / AI models
+
+
+Logo and branding
+-----------------
+  Quelo logo (docs/logo.png and software assets)
+  Quelo brand / project material — Alberto Frosio
+
+
+Contact
+-------
+  Commercial use / reports: alby@gnumerica.org

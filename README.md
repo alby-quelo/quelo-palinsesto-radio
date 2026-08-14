@@ -7,7 +7,8 @@ Palinsesto radio automatico per Linux: griglia settimanale, FILE / PLAYLIST / LI
 | | |
 |---|---|
 | **Versione** | vedi file [`VERSION`](VERSION) |
-| **Licenza** | (da definire al publish) |
+| **Licenza** | [CC BY-NC 4.0](LICENSE.TXT) (lavoro originale) — vedi anche [`CREDITS.TXT`](CREDITS.TXT) |
+| **Autore** | Alberto Frosio — `alby@gnumerica.org` |
 | **Piattaforma** | Linux (Debian e altre distro — vedi dipendenze) |
 | **Architetture** | x86_64, aarch64, … se esistono le dipendenze per quella CPU |
 
@@ -123,6 +124,13 @@ dist/                          archivi release (.tar.gz / .zip / .rar)
 
 ---
 
-## Licenza e contributo
+## Licenza
 
-Da completare al momento della pubblicazione su GitHub.
+Il lavoro originale Quelo Palinsesto Radio è rilasciato sotto **Creative Commons BY-NC 4.0**. Uso didattico e non commerciale consentito con attribuzione; uso commerciale solo con autorizzazione scritta di **Alberto Frosio** (`alby@gnumerica.org`).
+
+I software di terze parti (dipendenze runtime) restano soggetti alle rispettive licenze — vedi [`LICENSE.TXT`](LICENSE.TXT) e [`CREDITS.TXT`](CREDITS.TXT).
+
+### License
+
+Original Quelo Palinsesto Radio work: **CC BY-NC 4.0**. Non-commercial/educational use with attribution; commercial use only with written permission from **Alberto Frosio** (`alby@gnumerica.org`). Third-party components keep their own licenses — see `LICENSE.TXT` and `CREDITS.TXT`.
+

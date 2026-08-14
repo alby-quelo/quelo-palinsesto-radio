@@ -1,0 +1,146 @@
+Quelo Palinsesto Radio — License / Licenza
+==========================================
+
+Copyright (c) 2026 — Alberto Frosio
+
+
+================================================================================
+ITALIANO
+================================================================================
+
+Licenza del lavoro originale (Quelo Palinsesto Radio)
+----------------------------------------------------
+Il materiale originale di questo progetto — inclusi, a titolo esemplificativo:
+software Quelo Palinsesto Radio (codice in share/quelo-palinsesto-radio/,
+launcher in bin/, file .desktop, interfaccia desktop PyQt, interfaccia web
+--web-only, motore di palinsesto, ANTI BIANCO, mixer Pulse, manuali utente
+PDF desktop e web, branding Quelo incluso), script di packaging
+(scripts/pack-release.sh), documentazione del progetto (README, tabella
+dipendenze, pagina docs/), archivi di release, e ogni parte non coperta
+dalle licenze elencate sotto — è rilasciato sotto:
+
+  Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+
+Testo completo (IT):
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode.it
+
+Testo completo (EN):
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+In sintesi, per il lavoro originale Quelo Palinsesto Radio:
+
+  • Uso non commerciale e didattico — consentito, a condizione di citare
+    il progetto nei credits e in ogni documentazione sulle licenze.
+
+  • Uso commerciale — NON consentito senza autorizzazione scritta preventiva
+    di Alberto Frosio, anche se si utilizza solo una parte del materiale
+    (software, script, documentazione, branding, ecc.).
+
+  • Attribuzione — chi ridistribuisce o modifica il materiale originale deve
+    indicare la fonte, il link alla licenza CC BY-NC 4.0 e se sono state
+    apportate modifiche.
+
+  • Contatto per uso commerciale — richiedere esplicitamente l’autorizzazione
+    a Alberto Frosio (alby@gnumerica.org) prima di qualsiasi uso a scopo
+    commerciale o lucrativo.
+
+Nota: la presente licenza si applica al lavoro creato dal progetto Quelo
+Palinsesto Radio. Non sostituisce né limita le licenze dei software di terze
+parti da cui dipende il programma (elencati sotto), che restano governati
+dai rispettivi titolari.
+
+
+Licenze software e componenti di terze parti
+--------------------------------------------
+Quelo Palinsesto Radio dipende da componenti non realizzati dall’autore.
+Ciascuno resta soggetto alla propria licenza. Elenco in buona fede
+(allineato a tabella_dipendenze_obbligatorie.md e dipendenze.txt); in caso
+di dubbio prevalgono i metadati della distro (/usr/share/doc/*/copyright
+su Debian) e i testi ufficiali dei singoli progetti.
+
+A) Runtime del software Quelo Palinsesto Radio
+  Python 3                            → PSF License
+  Libreria standard Python
+    (http.server, sqlite3, json,
+     pathlib, argparse, urllib, …)    → PSF License (con Python)
+  sqlite3 (motore DB)                 → Public Domain
+  PyGObject / python3-gi              → LGPL v2.1+
+  PyQt6 / python3-pyqt6               → GPL v3 (Riverbank; binding Qt 6)
+                                        [solo GUI desktop; non richiesto
+                                         con --web-only]
+  Qt 6                                → LGPL v3 / GPL v2+ / GPL v3
+                                        (Qt Company; via PyQt6)
+  GStreamer 1.x (core)                → LGPL v2.1+
+  gstreamer1.0-plugins-base / good    → LGPL v2.1+ / miste
+  gstreamer1.0-plugins-bad / ugly     → LGPL / GPL (plugin; vedi Debian)
+  gstreamer1.0-libav                  → LGPL / GPL (via libav/FFmpeg)
+  gstreamer1.0-pulseaudio             → LGPL (pulsesrc / pulsesink)
+  gstreamer1.0-fdkaac / libfdk-aac    → Fraunhofer FDK (non-free) / GPL
+                                        [consigliato, AAC]
+  FFmpeg / ffprobe                    → LGPL v2.1+ / GPL v2+ (config distro)
+  PulseAudio (pactl / utils)          → LGPL v2.1+ / GPL v2+
+  PipeWire, pipewire-pulse,
+    wireplumber                       → MIT / LGPL (componenti)
+                                        [alternativa a PulseAudio]
+  glib-networking                     → LGPL v2.1+ (TLS; stream LINK HTTPS)
+  zathura / zathura-pdf-poppler       → zlib / GPL (apertura manuale PDF)
+  xdg-utils (xdg-open)                → MIT-like (fallback apertura PDF)
+
+B) Origine / contesto Quelo
+  Il software è uno spin-off standalone della funzione palinsesto radio
+  presente in Quelo Audiomaker. La funzione ANTI BIANCO di questo progetto
+  è anche l’origine concettuale di Quelo Anti Bianco
+  (https://github.com/alby-quelo/quelo-anti-bianco).
+
+L’autore di Quelo Palinsesto Radio non rivendica la proprietà di questi
+componenti di terzi e non modifica le loro licenze.
+
+
+================================================================================
+ENGLISH
+================================================================================
+
+License for original work (Quelo Palinsesto Radio)
+--------------------------------------------------
+Original material in this project — including but not limited to: Quelo
+Palinsesto Radio software (share/quelo-palinsesto-radio/, bin/ launchers,
+.desktop files, PyQt desktop UI, --web-only browser UI, schedule engine,
+ANTI BIANCO, Pulse mixer, desktop and web PDF manuals, Quelo branding),
+packaging scripts (scripts/pack-release.sh), project documentation
+(README, dependency table, docs/ page), release archives, and any part not
+covered by the licenses listed below — is released under:
+
+  Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+
+Full legal code (EN):
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Full legal code (IT):
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode.it
+
+Summary for original Quelo Palinsesto Radio material:
+
+  • Non-commercial and educational use — allowed, provided the project is
+    credited in credits and in all license documentation.
+
+  • Commercial use — NOT allowed without prior written authorization from
+    Alberto Frosio, even if only part of the material is used (software,
+    scripts, documentation, branding, etc.).
+
+  • Attribution — redistributors and modifiers must credit the source, link
+    to CC BY-NC 4.0, and note any changes made.
+
+  • Commercial licensing — contact Alberto Frosio (alby@gnumerica.org)
+    explicitly before any commercial or for-profit use.
+
+Note: this license applies to work created by the Quelo Palinsesto Radio
+project. It does not replace or limit third-party licenses of runtime
+dependencies (listed above), which remain governed by their respective
+owners.
+
+
+Third-party software
+--------------------
+See the Italian section for the dependency-oriented list aligned with
+tabella_dipendenze_obbligatorie.md and dipendenze.txt. In case of doubt,
+distribution copyright files prevail.
