@@ -19,9 +19,11 @@ Release pacchettizzate (stesso contenuto, tre formati):
 
 | Formato | File |
 |--------|------|
-| `.tar.gz` | [quelo-palinsesto-radio-\<VERSION\>.tar.gz](dist/) |
-| `.zip` | [quelo-palinsesto-radio-\<VERSION\>.zip](dist/) |
-| `.rar` | [quelo-palinsesto-radio-\<VERSION\>.rar](dist/) |
+| `.tar.gz` | [quelo-palinsesto-radio-1.0.0.tar.gz](https://github.com/alby-quelo/quelo-palinsesto-radio/releases/download/v1.0.0/quelo-palinsesto-radio-1.0.0.tar.gz) |
+| `.zip` | [quelo-palinsesto-radio-1.0.0.zip](https://github.com/alby-quelo/quelo-palinsesto-radio/releases/download/v1.0.0/quelo-palinsesto-radio-1.0.0.zip) |
+| `.rar` | [quelo-palinsesto-radio-1.0.0.rar](https://github.com/alby-quelo/quelo-palinsesto-radio/releases/download/v1.0.0/quelo-palinsesto-radio-1.0.0.rar) |
+
+Tutte le release: https://github.com/alby-quelo/quelo-palinsesto-radio/releases
 
 Dopo lo scompattamento:
 
