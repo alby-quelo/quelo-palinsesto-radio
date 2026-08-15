@@ -10,8 +10,10 @@ OUT_DIR="$STAGE/$NAME"
 
 rm -rf "$STAGE"
 mkdir -p "$OUT_DIR" "$DIST"
+rm -f "$DIST/${NAME}.tar.gz" "$DIST/${NAME}.zip" "$DIST/${NAME}.rar"
 
 rsync -a \
+  --exclude '.git/' \
   --exclude '__pycache__/' \
   --exclude '*.pyc' \
   --exclude 'dist/' \

@@ -232,6 +232,7 @@ a.manual{color:var(--text);text-decoration:none;background:#2f3b4a;border:1px so
 <script>
 const DAY=['Lun','Mar','Mer','Gio','Ven','Sab','Dom'];
 let weekMonday=null, clips=[], selectedId=null, browsePath='', pxh=100, playingId=null, lastPickedFile='';
+let nowScrolledOnce=false;
 let plTracks=[];
 const ZOOM_MIN=30, ZOOM_MAX=400, ZOOM_STEP=6;
 function setZoom(v){
@@ -353,6 +354,37 @@ function updateNowLine(nowIso){
   if(el.parentNode!==body) body.appendChild(el);
   const frac=Math.max(0, Math.min(1, (now-day0)/86400000));
   el.style.top=(frac*24*pxh)+'px';
+  scrollTimelineToNow(false);
+}
+function scrollTimelineToNow(force){
+  const el=document.getElementById('nowLine');
+  const wrap=document.querySelector('.tl-wrap');
+  if(!el || !wrap) return;
+  if(!force && nowScrolledOnce) return;
+  const doScroll=()=>{
+    if(!document.getElementById('nowLine') || !document.querySelector('.tl-wrap')) return;
+    const line=document.getElementById('nowLine');
+    const box=document.querySelector('.tl-wrap');
+    const lineTop=parseFloat(line.style.top);
+    if(isNaN(lineTop)) return;
+    const col=line.parentElement?line.parentElement.parentElement:null;
+    const head=col?col.querySelector('.dayh'):null;
+    const headH=head?(head.offsetHeight||28):28;
+    const yPad=Math.min(140, Math.max(48, box.clientHeight*0.3));
+    box.scrollTop=Math.max(0, headH+lineTop-yPad);
+    if(col){
+      const gutter=document.querySelector('#timeline .gutter');
+      const gW=gutter?(gutter.offsetWidth||44):44;
+      box.scrollLeft=Math.max(0, col.offsetLeft-gW);
+    }
+    nowScrolledOnce=true;
+  };
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      doScroll();
+      if(force || !nowScrolledOnce) setTimeout(doScroll, 80);
+    });
+  });
 }
 async function loadWeek(){
   const q=weekMonday?('?monday='+encodeURIComponent(isoLocal(weekMonday).slice(0,10))):'';
@@ -667,7 +699,7 @@ document.getElementById('btnListen').onclick=async()=>{
 document.getElementById('vol').onchange=async()=>{ await api('/api/volume',{method:'POST',body:JSON.stringify({value:(+document.getElementById('vol').value)/100})}); };
 document.getElementById('btnPrev').onclick=async()=>{ weekMonday=addDays(weekMonday,-7); await loadWeek(); };
 document.getElementById('btnNext').onclick=async()=>{ weekMonday=addDays(weekMonday,7); await loadWeek(); };
-document.getElementById('btnToday').onclick=async()=>{ weekMonday=mondayOf(new Date()); await loadWeek(); };
+document.getElementById('btnToday').onclick=async()=>{ weekMonday=mondayOf(new Date()); await loadWeek(); scrollTimelineToNow(true); };
 document.getElementById('addKind').onchange=syncKindUI;
 document.getElementById('btnQueue').onclick=setQueueAfterLast;
 document.getElementById('btnNow').onclick=setFromNow;
@@ -956,6 +988,7 @@ document.getElementById('btnNet').onclick=async()=>{
   weekMonday=mondayOf(new Date());
   syncKindUI();
   await loadWeek(); await loadSettings(); await loadBrowse(''); await loadMixer();
+  nowScrolledOnce=false; scrollTimelineToNow(true);
   const meta=await api('/api/meta'); document.getElementById('urls').textContent=(meta.urls||[]).join(' · ');
   document.getElementById('bind').value=meta.bind; document.getElementById('port').value=meta.port;
   setInterval(async()=>{ try{ await refreshStatus(); }catch(e){} }, 150);
